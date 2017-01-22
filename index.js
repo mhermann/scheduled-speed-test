@@ -35,13 +35,14 @@ var j = schedule.scheduleJob('*/1 * * * *', function(){
       }
     }
     console.dir(outputData);
-    fs.appendFile('log.txt', JSON.stringify(outputData)+endOfLine, encoding='utf8', function (err) {
+    fs.appendFile('/outputdata/log.txt', JSON.stringify(outputData)+endOfLine, encoding='utf8', function (err) {
         if (err) throw err;
     });
   });
  
   test.on('error', err => {
-    fs.appendFile('log.txt', JSON.stringify(err)+endOfLine, encoding='utf8', function (err) {
+    console.dir(err);
+    fs.appendFile('/outputdata/log.txt', JSON.stringify(err)+endOfLine, encoding='utf8', function (err) {
         if (err) throw err;
     });
   });
